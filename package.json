@@ -1,0 +1,31 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liz-Nino64/Rock-Paper-Scissors.git"
+  },
+  "author": "Elizabeth Nino, Michael Muniz, Nigel Poblete",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Liz-Nino64/Rock-Paper-Scissors/issues"
+  },
+  "homepage": "https://github.com/Liz-Nino64/Rock-Paper-Scissors#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.2.4",
+    "sequelize": "^6.31.0",
+    "handlebars": "^4.7.7"
+  }
+}
