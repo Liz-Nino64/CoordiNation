@@ -5,21 +5,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CoordiNation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="/css/jass.css">
 </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Your Group Members
-    </h1>
+<body class="">
+
+    <nav class="navbar is-dark text is-dark border-bottom border-4 border-light has-background-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu">
+    <div class="navbar-start">
+        <div class="buttons ml-3">
+          <a onclick="home()" id ="home" class="button is-black border border-4 border-light has-text-success">
+            <strong>Home</strong>
+          </a>
+        </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <button onclick="signUp()" id ="signup-btn" class="button is-danger has-text-dark border border-4 border-light">
+            <strong>Sign up</strong>
+          </button>
+          
+          <a class="button is-black border border-4 border-light">
+            <strong onclick="login()" class="has-text-success">Log in</strong>
+          </a>
+
     <!-- Only displays the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
+    {{#if isLogged_in }}
+
       <button class="btn" id="logout">logout</button>
-    </nav>
+
     {{/if}}
-  </header>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
@@ -28,7 +54,7 @@
   </footer>
 
   <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
+  {{#if isLogged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
