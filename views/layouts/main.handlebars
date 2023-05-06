@@ -46,7 +46,7 @@
 </nav>
 
 
-  <main class="container container-fluid mt-5">
+  <main class="container container-fluid mt-5 has-background-dark">
     {{{ body }}}
   </main>
   <footer>
@@ -57,6 +57,23 @@
   {{#if isLogged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
+  <script>function signUp() {
+    document.location.replace('/signup');
+  }
+ </script>
+
+  <script>function home() {
+    document.location.replace('/');
+}
+ </script>
+
+  <script>function login() {
+    document.location.replace('/login');
+}
+ </script>
+
+
 </body>
 
 </html>

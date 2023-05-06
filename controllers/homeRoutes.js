@@ -12,7 +12,7 @@ const withAuth = require('../utils/auth');
 
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
 
     res.render('homepage', {
@@ -25,14 +25,29 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+
+router.get('/dashboard', withAuth, async (req, res) => { 
+
+  res.render('dashboard', { 
+    layout: 'main',
+    isLogged_in: req.session.logged_in });
+
+
+});
+
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('dashboard');
     return;
   }
 
   res.render('login');
 });
+
+
+router.get('/signup', (req, res) => {
+  res.render('signup')
+})
 
 module.exports = router;
