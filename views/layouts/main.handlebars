@@ -16,28 +16,27 @@
   <div class="navbar-menu">
     <div class="navbar-start">
         <div class="buttons ml-3">
-          <a onclick="home()" id ="home" class="button is-black border border-4 border-light has-text-success">
+          <a onclick="home()" id ="home" class="button is-black border border-4 border-dark has-text-success">
             <strong>Home</strong>
           </a>
         </div>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <button onclick="signUp()" id ="signup-btn" class="button is-success has-text-dark border border-4 border-light">
-            <strong>Sign up</strong>
-          </button>
-          
-          <a class="button is-black border border-4 border-light">
-            <strong onclick="login()" class="has-text-success">Log in</strong>
-          </a>
 
     <!-- Only displays the logout button if the user is logged in -->
     {{#if isLogged_in }}
-
       <button class="button is-danger" id="logout"><strong class="has-text-dark">Logout</strong></button>
-
+      {{else}}
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <button onclick="signUp()" id ="signup-btn" class="button is-success has-text-dark border border-4 border-dark">
+            <strong>Sign up</strong>
+          </button>
+          
+          <a class="button is-black border border-4 border-dark">
+            <strong onclick="login()" class="has-text-success">Log in</strong>
+          </a>
     {{/if}}
 
         </div>
