@@ -25,7 +25,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <button onclick="signUp()" id ="signup-btn" class="button is-danger has-text-dark border border-4 border-light">
+          <button onclick="signUp()" id ="signup-btn" class="button is-success has-text-dark border border-4 border-light">
             <strong>Sign up</strong>
           </button>
           
@@ -36,7 +36,7 @@
     <!-- Only displays the logout button if the user is logged in -->
     {{#if isLogged_in }}
 
-      <button class="" id="logout">logout</button>
+      <button class="button is-danger" id="logout"><strong class="has-text-dark">Logout</strong></button>
 
     {{/if}}
 
