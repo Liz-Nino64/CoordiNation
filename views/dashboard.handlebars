@@ -1,0 +1,63 @@
+<div>
+
+<h1 class="box has-background-black has-text-light has-text-centered ">TODAY IS : (time date)</h1>
+
+<div class="columns">
+
+<div class="column">
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-primary border border-4 border-dark">
+        
+        <p class="title has-text-dark">Tasks</p>
+          {{#each taskz as |task|}}
+        <div class="content">
+          <div class="box has-background-dark border border-4 border-dark columns">
+
+            <div class="column">
+            <h5 class="has-text-primary">Task: {{task.taskname}} </h5>
+            <h6 class="has-text-light">Status: {{task.status}}</h6>
+            <strong class="has-text-link">Assigned to: {{task.user.name}}</strong>
+            </div>
+
+            <div class="column">
+                <h5 class="has-text-warning">Priortity:</h5> <h5 class="has-text-danger">{{task.priority}}</h5>
+            </div>
+
+
+          </div>  
+      </div>
+              {{/each}}
+    </div>  
+    </div>
+
+<div class="column">
+
+<div class="box has-background-black h-50">
+<h1 class="has-text-light"> ** Hello {User}, You are logged in!</h1>
+</div>
+
+
+<div class="box has-background-black">
+<h1 class="has-text-success has-text-centered">Create</h1>
+</div>
+
+<div class="box has-background-black">
+<h1 class="has-text-link has-text-link has-text-centered">Update</h1>
+</div>
+
+<div class="box has-background-black">
+<h1 class="has-text-danger has-text-success has-text-centered">Delete</h1>
+</div>
+
+
+</div>
+
+
+
+
+
+
+ </div>
+
+
+</div>
