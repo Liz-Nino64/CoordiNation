@@ -35,13 +35,21 @@ User.init(
         len: [8],
       },
     },
+    task_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'task',
+        key: 'id'
+      }
+    },
   },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
-      },
+      }
     },
     sequelize,
     timestamps: false,
@@ -50,5 +58,6 @@ User.init(
     modelName: 'user',
   }
 );
+
 
 module.exports = User;

@@ -1,10 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const User = require('./User')
 
 class Task extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
+  static getAllTasks() {
+    return Task.findAll({
+      include: {
+        model: User,
+        attributes: ['name']
+      },
+      attributes: ['id', 'taskname', 'status', 'priority']
+    });
   }
 }
 
@@ -15,15 +22,19 @@ Task.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+
     },
-    name: {
+    taskname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    assignee: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
     },
     status: {
       type: DataTypes.STRING,
@@ -31,14 +42,17 @@ Task.init(
     },
     priority: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
+  },
+  {  
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'task',
-  }
-);
+    modelName: 'task'
+  },
+  
+  );
 
 module.exports = Task;
