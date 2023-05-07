@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -28,10 +28,25 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => { 
 
+  const taskData = await Task.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+    const taskz = taskData.map((task) => task.get({ plain: true})) 
+  
+
   res.render('dashboard', { 
+    taskz,
     layout: 'main',
     isLogged_in: req.session.logged_in });
 
+
+    console.log(taskz)
 
 });
 

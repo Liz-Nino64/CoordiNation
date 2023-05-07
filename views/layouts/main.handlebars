@@ -25,6 +25,7 @@
 
     <!-- Only displays the logout button if the user is logged in -->
     {{#if isLogged_in }}
+      <button onclick="dashboard()" class="button is-black border border-4 border-dark mr-3" ><strong class="has-text-success">Dashboard</strong></button>
       <button class="button is-danger" id="logout"><strong class="has-text-dark">Logout</strong></button>
       {{else}}
     <div class="navbar-end">
@@ -56,6 +57,8 @@
 
 </body>
 
+
+
   <!-- Only include the logout script if the user is logged in -->
   {{#if isLogged_in}}
   <script src="/js/logout.js"></script>
@@ -66,14 +69,20 @@
   }
  </script>
 
-  <script>function home() {
-    document.location.replace('/');
+  <script>
+    
+    function home() {
+      document.location.replace('/');
 }
  </script>
 
   <script>function login() {
     document.location.replace('/login');
 }
+ </script>
+
+ <script>function dashboard() {
+  document.location.replace('/dashboard')}
  </script>
 
 </html>
