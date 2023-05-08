@@ -1,23 +1,18 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
-
-
 
 // router.get('/', (req, res) => {
 //   res.render('homepage', {
-//     layout: 'main', 
+//     layout: 'main',
 //   isLogged_in: req.session.isLogged_in})
 // })
 
-
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-
     res.render('homepage', {
       layout: 'main',
-      // Pass the logged in flag to the template
       isLogged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -25,14 +20,59 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
+router.get('/dashboard/', withAuth, async (req, res) => {
+  const taskData = await Task.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+  const taskz = taskData.map((task) => task.get({ plain: true }));
+
+  res.render('dashboard', {
+    taskz,
+    layout: 'main',
+    isLogged_in: req.session.logged_in,
+  });
+
+  console.log(taskz);
+});
+
+router.get('/login', async (req, res) => {
+  const loginData = await User.findAll({});
+
+  const loginz = loginData.map((login) => login.get({ plain: true }));
+
+  console.log(loginz);
+
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('dashboard');
     return;
   }
 
   res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+
+
+router.get('/task/:id', async (req, res) => {
+ 
+  const taskData =  await Task.findByPk(req.params.id,{
+    include []
+  })
+ 
+  res.render('task');
+})
+
+
+
+
 
 module.exports = router;
