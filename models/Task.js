@@ -27,6 +27,10 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING,
+    },
+
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,

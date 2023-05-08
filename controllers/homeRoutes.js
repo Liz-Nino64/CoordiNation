@@ -62,14 +62,52 @@ router.get('/signup', (req, res) => {
 
 
 
+
+
+
+// router.get('/task/:id', async (req, res) => {
+//   const taskData = await Task.findByPk(req.params.id, {
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['name'],
+//       },
+//     ],
+//   });
+
+//   const taskz = taskData.map((task) => task.get({ plain: true }));
+
+//   res.render('task', {
+//     ...taskz,
+//     layout: 'main',
+//   });
+// });
+
+
+
+
+
 router.get('/task/:id', async (req, res) => {
- 
-  const taskData =  await Task.findByPk(req.params.id,{
-    include []
-  })
- 
-  res.render('task');
-})
+  try {
+    const taskData = await Task.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const task = taskData.get({ plain: true });
+
+    res.render('task', {
+      ...task,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
