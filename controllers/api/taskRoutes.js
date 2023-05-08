@@ -34,6 +34,8 @@ router.delete('delete/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 router.get('/find/:id', async (req, res) => {
   try {
     const taskData = await Task.findByPk(req.params.id, {
