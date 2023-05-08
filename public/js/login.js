@@ -7,6 +7,10 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
+
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
     // Send the e-mail and password to the server
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -14,8 +18,10 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(response);
+
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace(`/dashboard/${id}`);
     } else {
       alert('Failed to log in');
     }
