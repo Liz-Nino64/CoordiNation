@@ -62,7 +62,7 @@ router.get('/signup', (req, res) => {
 
 
 
-router.get('/task/:id', async (req, res) => {
+/* router.get('/task/:id', async (req, res) => {
  
   const taskData =  await Task.findByPk(req.params.id,{
     include []
@@ -70,7 +70,7 @@ router.get('/task/:id', async (req, res) => {
  
   res.render('task');
 })
-
+*/
 
 
 
