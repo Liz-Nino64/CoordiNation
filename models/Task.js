@@ -1,16 +1,16 @@
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
-const User = require('./User')
+const User = require('./User');
 
 class Task extends Model {
   static getAllTasks() {
     return Task.findAll({
       include: {
         model: User,
-        attributes: ['name']
+        attributes: ['name'],
       },
-      attributes: ['id', 'taskname', 'status', 'priority']
+      attributes: ['id', 'taskname', 'status', 'priority'],
     });
   }
 }
@@ -22,7 +22,6 @@ Task.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-
     },
     taskname: {
       type: DataTypes.STRING,
@@ -33,7 +32,7 @@ Task.init(
       allowNull: true,
       references: {
         model: 'user',
-        key: 'id'
+        key: 'id',
       },
     },
     status: {
@@ -45,14 +44,13 @@ Task.init(
       allowNull: true,
     },
   },
-  {  
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'task'
-  },
-  
-  );
+    modelName: 'task',
+  }
+);
 
 module.exports = Task;
