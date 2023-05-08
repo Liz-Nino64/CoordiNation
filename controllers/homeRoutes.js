@@ -60,4 +60,19 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+
+
+router.get('/task/:id', async (req, res) => {
+ 
+  const taskData =  await Task.findByPk(req.params.id,{
+    include []
+  })
+ 
+  res.render('task');
+})
+
+
+
+
+
 module.exports = router;

@@ -1,0 +1,43 @@
+    <section class="columns">
+      
+      <div class="column">
+          <div class="tile is-parent">
+            <div class="tile is-child notification is-primary border border-4 border-dark">
+              
+              <p class="title has-text-dark">Tasks</p>
+
+              <div class="content">
+                  <div class="box has-background-dark border border-4 border-dark columns">
+        
+                      <div class="column">
+                        <h5 class="has-text-primary">Task: {{task.taskname}} </h5>
+                        <h6 class="has-text-light">Status: {{task.status}}</h6>
+                        <strong class="has-text-link">Assigned to: {{task.user.name}}</strong>
+                      </div>
+        
+                      <div class="column">
+                        <h5 class="has-text-warning">Priortity:</h5> <h5 class="has-text-danger">{{task.priority}}</h5>
+                        <h5 class="has-text-warning">Due Date:</h5> <h5 class="has-text-warning">{{task.dateDue}}</h5>
+                      </div>
+                  </div>
+
+                  <div class="content">
+
+                      <div class="box has-background-dark border border-4 border-dark columns">
+                        <h6 class="has-text-light">Task Description: {{task.description}}</h6>
+                      </div>
+                  </div>
+                  
+              </div> 
+
+                  <div class="col-md-4">
+                    <button class="btn btn-sm has-background-black has-text-danger has-text-success " data-id="{{task.id}}" data-action="delete">DELETE</button>        
+                    <button class="btn btn-sm has-background-black has-text-link" data-id="{{task.id}}" data-action="update">UPDATE</button>
+                  </div>
+
+            </div>
+          </div>
+        </div>
+
+    </section>
+    
