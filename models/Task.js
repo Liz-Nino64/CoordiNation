@@ -27,6 +27,10 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING,
+    },
+
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -40,6 +44,10 @@ Task.init(
       allowNull: false,
     },
     priority: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    dateDue: {
       type: DataTypes.STRING,
       allowNull: true,
     },
