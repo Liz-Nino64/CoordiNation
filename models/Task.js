@@ -47,6 +47,10 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    dateDue: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,

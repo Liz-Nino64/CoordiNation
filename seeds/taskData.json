@@ -1,27 +1,35 @@
 [   
     {
         "taskname": "finish this page",
+        "description": "Make sure to include new Logo and images.",
         "user_id": 2,
         "status": "Overdue",
-        "priority": "red"
+        "priority": "red",
+        "dateDue": "05/08/2023"
     },
     {
         "taskname": "add more colors",
+        "description": "Make sure they work well with the business original color pallete",
         "user_id": 2,
         "status": "Overdue",
-        "priority": "red"
+        "priority": "red",
+        "dateDue": "05/08/2023"
     },
     {
         "taskname": "create landing page",
+        "description": "aksdfkjasfdlkja;sldfkjakjsf;kaj;fkj",
         "user_id": 3,
         "status": "Overdue",
-        "priorty": "red"
+        "priorty": "red",
+        "dateDue": "05/08/2023"
     },
     {
         "taskname": "rewatch MVC classes",
+        "description": "123412341234123412341234123412341234",
         "user_id": 1,
         "status": "Overdue",
-        "priority": "red"
+        "priority": "red",
+        "dateDue": "05/08/2023"
     }
 
 
