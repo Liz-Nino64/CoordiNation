@@ -1,13 +1,42 @@
-<a href="default.asp"><img src="../assets/multiethnic-group-people-society-multicultural-community-portrait-citizens-young-adult-elder-aging-african-asian-ladies-153736278.jpg" alt="Photo of team members" style="width:42px;height:42px;"></a>
 
-  <main class="card-body is-vcentered has-text-light">
-    Welcome to CoordiNation! Your home for user-friendly task management assistance! To get started, Sign Up or Log In!
+
+
+<div class="box has-background-dark">
+
+<figure class="image 16by9">
+  <img class="is-rounded" src="https://i.imgur.com/slJmhir.jpg">
+</figure>
+
+  <main class="box has-background-black is-vcentered has-text-light has-text-centered mt-6 border border-4 border-light">
+    <h1 class="has-text-success">Welcome to the CoordiNation Station!</h1>
+     <h5 class="has-text-danger ">Your home for user-friendly task management assistance! To get started, Sign Up or Log In!</h5>
   </main>
-  <div class="buttons">
-    <button onclick="signUp()" id ="signup-btn" class="button is-danger has-text-dark border border-4 border-light">
+
+
+  {{#if isLogged_in }}
+
+<div class=" buttons is-centered">
+      <button onclick="dashboard()" class="button is-black border border-4 border-dark mr-3"><strong
+          class="has-text-success">Dashboard</strong></button>
+      <button class="button is-danger border border-4 border-dark" id="logout"><strong class="has-text-dark">Logout</strong></button>
+</div>
+
+
+
+  {{else}}
+  <div class="buttons is-centered">
+    <button onclick="signUp()" id ="signup-btn" class="button is-success has-text-dark border border-4 border-dark">
       <strong>Sign up</strong>
     </button>
     
-    <a class="button is-black border border-4 border-light is-vcentered">
+    <a class="button is-black border border-4 border-dark is-vcentered">
       <strong onclick="login()" class="has-text-success">Log in</strong>
     </a>
+    </div>
+
+
+
+    {{/if}}
+
+
+    </div>
