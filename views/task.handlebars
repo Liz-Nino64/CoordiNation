@@ -102,7 +102,7 @@
             event.preventDefault();
             var form = document.getElementById('updateForm');
 
-            fetch('/update/' + taskId, {
+            fetch('api/task/update/' + taskId, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -119,6 +119,7 @@
             .then(response => {
                 if (response.ok) {
                     {{!-- Refresh the page or perform some other action --}}
+
                 } else {
                     throw new Error('Something went wrong');
                 }
