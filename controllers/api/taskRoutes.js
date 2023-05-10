@@ -64,7 +64,7 @@ router.get('/find/:id', async (req, res) => {
 
     res.render('task', {
       ...task,
-      logged_in: req.session.logged_in,
+      isLogged_in: req.session.logged_in,
     });
     console.log(task);
   } catch (err) {
