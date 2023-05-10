@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS Tasks_db;
 CREATE DATABASE Tasks_db;
 
