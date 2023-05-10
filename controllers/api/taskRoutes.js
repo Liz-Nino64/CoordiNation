@@ -2,11 +2,23 @@ const router = require('express').Router();
 const { Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('update/:id', withAuth, async (req, res) => {
+
+
+router.put('update/:id', withAuth, async (req, res) => {
   try {
-    const newTask = await Task.create({
+    const newTask = await Task.update({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.body.user_id,
+      taskname: req.body.taskname,
+      description: req.body.description,
+      status: req.body.status,
+      priority: req.body.priority,
+      dateDue: req.body.dateDue,
+    },
+    {
+      where:{
+        id:req.params.id
+      },
     });
 
     res.status(200).json(newTask);
@@ -14,6 +26,8 @@ router.post('update/:id', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
 
 router.delete('/delete/:id', withAuth, async (req, res) => {
   try {
