@@ -32,8 +32,8 @@
 
       <!-- Only displays the logout button if the user is logged in -->
       {{#if isLogged_in }}
-      <button onclick="dashboard()" class="button is-black border border-4 border-dark mr-3"><strong
-          class="has-text-success">Dashboard</strong></button>
+      <a href="/dashboard/2" class="button is-black border border-4 border-dark mr-3"><strong
+          class="has-text-success">Dashboard</strong></a>
       <button class="button is-danger border border-4 border-dark" id="logout"><strong class="has-text-dark">Logout</strong></button>
       {{else}}
       <div class="navbar-end">
@@ -95,4 +95,5 @@
   }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 </html>

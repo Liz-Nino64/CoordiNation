@@ -58,7 +58,7 @@ router.get('/create/:id', async (req, res) => {
 
     res.render('createtask', {
       user,
-      logged_in: req.session.logged_in,
+      isLogged_in:req.session.logged_in,
     });
     console.log(user);
   } catch (err) {
