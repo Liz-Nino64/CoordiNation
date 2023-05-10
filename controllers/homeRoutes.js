@@ -39,7 +39,7 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: req.session.logged_in,
+      isLogged_in: req.session.logged_in,
     });
     console.log(user);
   } catch (err) {
@@ -75,8 +75,7 @@ router.get('/login', async (req, res) => {
 
   if (req.session.logged_in) {
 
-    console.log(req.session.id);
-    // res.redirect('/');
+    res.redirect('/');
     return;
   }
 
