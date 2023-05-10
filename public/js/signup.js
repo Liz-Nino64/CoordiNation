@@ -18,11 +18,13 @@ const signUpFormHandler = async (event) => {
 
     if (response.ok) {
 
+
+      const newUser = await response.json();
       // const userData = await response.json();
 
       console.log('Signed up Successfully!', response);
 
-      document.location.replace('/dashboard');
+      document.location.replace(`/dashboard/${newUser.user.id}`);
     } else {
       alert('Failed to sign up');
     }

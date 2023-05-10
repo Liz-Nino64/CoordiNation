@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Task } = require('../../models');
 
-
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
@@ -29,8 +28,6 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-
-
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -43,14 +40,25 @@ router.post('/signup', async (req, res) => {
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     });
+
     if (!newUser) {
-      res.status(400).json({message: 'Unable to create new user, please try again!'});
+      res
+        .status(400)
+        .json({ message: 'Unable to create new user, please try again!' });
     }
-    res.status(200).json(newUser);
+
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+
+      res.json({user: newUser, message: 'you are now logged in!'});
+    });
   } catch (err) {
-    res.status(500).json({message: 'Something went wrong on our end. Please try again!'});
+    res
+      .status(500)
+      .json({ message: 'Something went wrong on our end. Please try again!' });
   }
 });
 
@@ -71,10 +79,9 @@ router.get('/create/:id', async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-
     res.render('createtask', {
       user,
-      isLogged_in:req.session.logged_in,
+      isLogged_in: req.session.logged_in,
     });
     console.log(user);
   } catch (err) {
