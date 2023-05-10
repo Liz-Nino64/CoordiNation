@@ -19,9 +19,9 @@ const loginFormHandler = async (event) => {
 
       // const userData = await response.json();
 
-      console.log('Logged in Successfully!')
+      console.log('Logged in Successfully!', response);
 
-      document.location.replace('/dashboard' );
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to log in');
     }

@@ -76,7 +76,7 @@ router.get('/login', async (req, res) => {
   if (req.session.logged_in) {
 
     console.log(req.session.id);
-    res.redirect('/');
+    // res.redirect('/');
     return;
   }
 
