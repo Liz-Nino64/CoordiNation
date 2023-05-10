@@ -35,14 +35,6 @@ User.init(
         len: [8],
       },
     },
-    task_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'task',
-        key: 'id'
-      }
-    },
   },
   {
     hooks: {
