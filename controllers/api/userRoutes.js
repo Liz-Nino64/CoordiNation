@@ -37,6 +37,22 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/signup', async (req, res) => {
+  try {
+    const newUser = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
+    if (!newUser) {
+      res.status(400).json({message: 'Unable to create new user, please try again!'});
+    }
+    res.status(200).json(newUser);
+  } catch (err) {
+    res.status(500).json({message: 'Something went wrong on our end. Please try again!'});
+  }
+});
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     // Remove the session variables
