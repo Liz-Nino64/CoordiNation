@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Task } = require('../../models');
-const withAuth = require('../../utils/auth');
+
 
 router.post('/login', async (req, res) => {
   try {
@@ -29,28 +29,12 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
 
+
+      res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(400).json(err);
-  }
-});
-
-router.post('/signup', async (req, res) => {
-  try {
-    const newUser = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    });
-
-    if (!newUser) {
-      res.status(400).json({message: 'Unable to create new user, please try again!'});
-    }
-    res.status(200).json(newUser);
-  } catch (err) {
-    res.status(500).json({message: 'Something went wrong on our end. Please try again!'});
   }
 });
 
@@ -65,11 +49,9 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.get('/create/:id', withAuth, async (req, res) => {
+router.get('/create/:id', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, { 
-      include: { Task }
-    });
+    const userData = await User.findByPk(req.params.id, {});
 
     const user = userData.get({ plain: true });
 
