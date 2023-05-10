@@ -37,9 +37,10 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
 });
 
 
-/* router.get('/find/:id', async (req, res) => {
+router.get('/find/:id', async (req, res) => {
   try {
     const taskData = await Task.findByPk(req.params.id, {
+
       include: [
         {
           model: User,
@@ -58,39 +59,43 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); */
-
-router.get('/find', async (req, res) => {
-  try {
-    const taskData = await Task.findAll({
-      where:{
-        user_id: req.session.user_id
-      },
-      attributes: ['id', 'taskname', 'description', 'status', 'priority', 'dateDue', 'user_id', [sequelize.literal('user.name'), 'userName']],
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-          raw:true
-        }
-      ],
-      raw:true
-    });
-    console.log(taskData);
-    //const task = taskData.get({ raw: true });
-    res.render('task', {
-      taskData,
-      logged_in: req.session.logged_in,
-    });
-    /* console.log(task);
-    res.render('task', {
-      ...task,
-      logged_in: req.session.logged_in,
-    }); */
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
+
+// router.get('/find', async (req, res) => {
+//   try {
+//     const taskData = await Task.findAll({
+//       where:{
+//         user_id: req.session.user_id
+//       },
+//       attributes: ['id', 'taskname', 'description', 'status', 'priority', 'dateDue', 'user_id', [sequelize.literal('user.name'), 'userName']],
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//           raw:true
+//         }
+//       ],
+//       raw:true
+//     });
+//     console.log(taskData);
+//     //const task = taskData.get({ raw: true });
+//     res.render('task', {
+//       taskData,
+//       logged_in: req.session.logged_in,
+//     });
+//     /* console.log(task);
+//     res.render('task', {
+//       ...task,
+//       logged_in: req.session.logged_in,
+//     }); */
+
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+
+
 
 module.exports = router;
