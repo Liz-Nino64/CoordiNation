@@ -44,6 +44,7 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       password: req.body.password
     });
+
     if (!newUser) {
       res.status(400).json({message: 'Unable to create new user, please try again!'});
     }
@@ -66,7 +67,9 @@ router.post('/logout', (req, res) => {
 
 router.get('/create/:id', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {});
+    const userData = await User.findByPk(req.params.id, { 
+      include: { Task }
+    });
 
     const user = userData.get({ plain: true });
 
