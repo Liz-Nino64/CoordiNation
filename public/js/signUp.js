@@ -8,7 +8,7 @@ const signUpFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
-    // Send the e-mail and password to the server
+    // Send the name, e-mail, and password to the server
     const response = await fetch('/api/users/signup', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
@@ -29,6 +29,7 @@ const signUpFormHandler = async (event) => {
   }
 };
 
+// Links function to signup form
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signUpFormHandler);
