@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Task } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.post('/login', async (req, res) => {
   try {
@@ -43,6 +44,23 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.get('/create/:id', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {});
+
+    const user = userData.get({ plain: true });
+
+
+    res.render('createtask', {
+      user,
+      logged_in: req.session.logged_in,
+    });
+    console.log(user);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

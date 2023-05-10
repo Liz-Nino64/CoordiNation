@@ -2,31 +2,54 @@
 
   <h1 class="box has-background-black has-text-light has-text-centered ">TODAY IS : (time date)</h1>
 
-  <div class="columns">
+  <div class="columns is-mobile is-centered">
 
     <div class="column">
       <div class="tile is-parent">
         <article class="tile is-child notification is-primary border border-4 border-dark">
 
-          <p class="title has-text-dark">Tasks</p>
-    
+          <p class="box has-background-danger title has-text-dark has-text-centered border border-5 border-dark">Tasks
+            List</p>
+
           <div class="content">
 
-            {{#each user as |user|}}
-            <div class="box has-background-dark border border-4 border-dark columns">
+            {{#each tasks as |task|}}
+            <div class="box has-background-dark border border-4 border-dark columns mt-3 p-2">
 
               <div class="column">
 
-                <h5 class="has-text-primary">Task: {{users.name}} </h5>
-                <h6 class="has-text-light">Status: {{tasks.[0].status}}</h6>
-              
-                <strong class="has-text-link">Assigned to: {{name}}</strong>
+                <h5 class="box has-background-black has-text-danger">Task : <text class="has-text-light">{{task.taskname}}</text></h5>
+                <h6 class="box has-background-black has-text-danger">Status : <text
+                    class="has-text-light">{{task.status}}</text></h6>
+
+                <div class="box is-centered has-background-black has-text-light p-3">
+                  <h6 class="box is centered has-background-success has-text-dark has-text-centered "><strong>Description:</strong></h6>
+
+
+                  <div class="box has-background-black">
+                    <div class="box has-background-dark has-text-light">
+                          {{task.description}}
+                      </div>
+                  </div>
+
+
+                </div>
 
               </div>
 
               <div class="column">
-                <h5 class="has-text-warning">Priortity:</h5>
-                <h5 class="has-text-danger">{{priority}}</h5>
+
+
+                <h5 class="box has-background-black has-text-warning">Priortity : <text
+                    class="has-text-danger">{{task.priority}}</text></h5>
+
+                <h5 class="box has-background-black has-text-danger">TASK ID : <text class="has-text-success ml-2">{{task.id}}</text></h5>
+
+                <h5 class="box has-background-black has-text-danger">Due By : <text class="has-text-success ml-2">{{task.dateDue}}</text></h5>
+
+              <div class="box has-background-black">
+                <a href="/api/task/find/{{task.id}}" class="button is-link  border border-dark border-5 ">Select Task</a>
+              </div>
 
               </div>
 
@@ -34,6 +57,8 @@
             </div>
 
             {{/each}}
+
+
           </div>
 
 
@@ -46,21 +71,16 @@
     <div class="column">
 
       <div class="box has-background-black h-50">
-        <h1 class="has-text-light"> ** Hello {User}, You are logged in!</h1>
+        <h1 class="has-text-light"> Hello <a class="has-text-danger">{{{name}}}</a>, You are logged in!</h1>
+
       </div>
 
 
-      <div class="box has-background-black">
-        <h1 class="has-text-success has-text-centered">Create</h1>
+      <div class="box has-background-black h-25">
+        <a href="/api/users/create/{{{id}}}" class="button has-background-success has-text-dark has-text-centered w-100 h-75 border border-danger border-5 ">Create Task</a>
       </div>
 
-      <div class="box has-background-black">
-        <h1 class="has-text-link has-text-link has-text-centered">Update</h1>
-      </div>
 
-      <div class="box has-background-black">
-        <h1 class="has-text-danger has-text-success has-text-centered">Delete</h1>
-      </div>
 
 
     </div>

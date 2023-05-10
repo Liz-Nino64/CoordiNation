@@ -37,10 +37,8 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
 
-
-
     res.render('dashboard', {
-      user,
+      ...user,
       logged_in: req.session.logged_in,
     });
     console.log(user);
@@ -74,14 +72,11 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
 // });
 
 router.get('/login', async (req, res) => {
-  const loginData = await User.findAll({});
-
-  const loginz = loginData.map((login) => login.get({ plain: true }));
-
-  console.log(loginz);
 
   if (req.session.logged_in) {
-    res.redirect('dashboard');
+
+    console.log(req.session.id);
+    res.redirect('/');
     return;
   }
 
