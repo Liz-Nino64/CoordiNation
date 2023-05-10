@@ -33,5 +33,5 @@ const signUpFormHandler = async (event) => {
 
 // Links function to signup form
 document
-  .querySelector('.signup-form')
+  .querySelector('.createtask-form')
   .addEventListener('submit', signUpFormHandler);
