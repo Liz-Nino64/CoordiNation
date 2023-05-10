@@ -18,7 +18,7 @@
     <div class="navbar-menu">
       <div class="navbar-start">
         <div class="buttons ml-3">
-          <a onclick="home()" id="home" class="button is-black border border-4 border-dark has-text-success">
+          <a id="home" class="button is-black border border-4 border-dark has-text-success">
             <strong>Home</strong>
           </a>
         </div>
@@ -27,20 +27,20 @@
 
       <!-- Only displays the logout button if the user is logged in -->
       {{#if isLogged_in }}
-      <button onclick="dashboard()" class="button is-black border border-4 border-dark mr-3"><strong
+      <button class="button is-black border border-4 border-dark mr-3" id="dashboardBtn"><strong
           class="has-text-success">Dashboard</strong></button>
-      <button class="button is-danger border border-4 border-dark" id="logout"><strong class="has-text-dark">Logout</strong></button>
+      <button class="logout-btn is-danger border border-4 border-dark" id="logout-btn"><strong class="has-text-dark">Logout</strong></button>
       {{else}}
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <button onclick="signUp()" id="signup-btn"
+            <button id="signup-btn-nav"
               class="button is-success has-text-dark border border-4 border-dark">
               <strong>Sign up</strong>
             </button>
 
             <a class="button is-black border border-4 border-dark">
-              <strong onclick="login()" class="has-text-success">Log in</strong>
+              <strong class="has-text-success" id="login-btn-nav">Log in</strong>
             </a>
             {{/if}}
 
@@ -58,9 +58,7 @@
 
   </footer>
 
-
 </body>
-
 
 
 <!-- Only include the logout script if the user is logged in -->
@@ -88,6 +86,16 @@
 <script>function dashboard() {
     document.location.replace('/dashboard')
   }
+</script>
+
+<script>function update() {
+  //a;orifja;oisfj
+}
+</script>
+
+<script>function byebye() {
+  //aorifjapoirjfgaori
+}
 </script>
 
 </html>

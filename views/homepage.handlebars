@@ -1,6 +1,3 @@
-
-
-
 <div class="box has-background-dark">
 
 <figure class="image 16by9">
@@ -16,21 +13,21 @@
   {{#if isLogged_in }}
 
 <div class=" buttons is-centered">
-      <button onclick="dashboard()" class="button is-black border border-4 border-dark mr-3"><strong
+      <button class="button is-black border border-4 border-dark mr-3" id="homeBtn"><strong
           class="has-text-success">Dashboard</strong></button>
-      <button class="button is-danger border border-4 border-dark" id="logout"><strong class="has-text-dark">Logout</strong></button>
+      <button class="logout-btn is-danger border border-4 border-dark" id="logoutBtn"><strong class="has-text-dark">Logout</strong></button>
 </div>
 
 
 
   {{else}}
   <div class="buttons is-centered">
-    <button onclick="signUp()" id ="signup-btn" class="button is-success has-text-dark border border-4 border-dark">
+    <button id ="signupBtn" class="button is-success has-text-dark border border-4 border-dark" id="signupBtn">
       <strong>Sign up</strong>
     </button>
     
     <a class="button is-black border border-4 border-dark is-vcentered">
-      <strong onclick="login()" class="has-text-success">Log in</strong>
+      <strongclass="has-text-success" id="loginBtn">Log in</strong>
     </a>
     </div>
 
