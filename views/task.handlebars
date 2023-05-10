@@ -1,4 +1,5 @@
-    <section class="columns">
+
+<section class="columns">
       
       <div class="column">
           <div class="tile is-parent">
@@ -12,7 +13,7 @@
                       <div class="column">
                         <h5 class="has-text-primary">Task: {{taskname}} </h5>
                         <h5 class="has-text-light">Status: {{status}}</h5>
-                        <strong class="has-text-link">Assigned to: {{user.name}}</strong>
+                        <h3 class="has-text-link">Assigned to: {{userName}}</h3>
                       </div>
         
                       <div class="column">
@@ -30,14 +31,128 @@
                   
               </div> 
 
-                  <div class="col-md-4">
-                    <button class="btn btn-sm has-background-black has-text-danger has-text-success " data-id="{{task.id}}" data-action="delete" id="updateBtn">DELETE</button>        
-                    <button class="btn btn-sm has-background-black has-text-link" data-id="{{task.id}}" data-action="update" id="deleteBtn">UPDATE</button>
-                  </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-sm has-background-black has-text-danger has-text-success " id="deleter" data-id="{{id}}" data-action="delete" onclick=deleteTask(event,{{id}},{{user_id}})>DELETE</button>        
+                      <button class="btn btn-sm has-background-black has-text-link" data-id="{{id}}" data-action="update" onclick=showForm(event)>UPDATE</button>
+                    </div>
 
+
+    <div>
+
+        <form class ="form-group has-text-light has-background-dark"id="updateForm" action="/update/{{task.id}}" style="display: none;">
+
+            <label class="form-group has-text-primary" for="taskname">Task Name:</label><br>
+            <input class="form-group" type="text" id="taskname" name="taskname" value="{{taskname}}"><br>
+
+            <label class="form-group has-text-primary" for="status">Task Status:</label><br>
+            <input class="form-group" type="text" id="status" name="status" value="{{status}}"><br>
+
+            <label class="form-group has-text-primary" for="priority">Task Priority:</label><br>
+            <input class="form-group" type="text" id="priority" name="priority" value="{{priority}}"><br>
+
+            <label class="form-group  has-text-primary" for="dateDue">Task Due Date:</label><br>
+            <input class="form-group" type="text" id="dateDue" name="dateDue" value="{{dateDue}}"><br>
+
+            <label class="form-group has-text-primary" for="description">Task Description:</label><br>
+            <input class="form-group" type="text" id="description" name="description" value="{{description}}"><br>
+
+            <input class="form-group" type="text" id="taskId" name="taskId"  value ="{{id}}" hidden>
+            <button id="UpdateSubBtn" class="btn btn-sm has-background-black has-text-link" type="submit" onclick=submitUpdateForm(event)>Submit Update</button>
+        </form>
+    </div>
+              </div>
             </div>
           </div>
-        </div>
+  
+      </section>
 
-    </section>
-    
+
+
+    {{!-- <div >
+        <form id="updateForm" action="/update/{{task.id}}" style="display: none;">
+            <label class="form-group has-text-primary " for="taskname">Task Name:</label>
+            <input class="form-group" type="text" id="taskname" name="taskname" value="{{taskname}}"><br>
+
+            <label class="form-group has-text-primary" for="status">Task Status:</label>
+            <input class="form-group" type="text" id="status" name="status" value="{{status}}"><br>
+
+            <label class="form-group has-text-primary" for="priority">Task Priority:</label>
+            <input class="form-group" type="text" id="priority" name="priority" value="{{priority}}"><br>
+
+            <label class="form-group  has-text-primary" for="dateDue">Task Due Date:</label>
+            <input class="form-group" type="text" id="dateDue" name="dateDue" value="{{dateDue}}"><br>
+
+            <label class="form-group has-text-primary" for="description">Task Description:</label>
+            <input class="form-group" type="text" id="description" name="description" value="{{description}}"><br>
+
+            <input class="form-group" type="text" id="taskId" name="taskId" value="{{task.id}}"hidden><br>
+            <button id="UpdateSubBtn" class="btn btn-sm has-background-black has-text-link" type="submit" onclick=submitUpdateForm(event)>Submit Update</button>
+        </form>
+    </div> --}}
+
+    <script defer> 
+
+        function showForm(event){
+            event.preventDefault();
+            var form = document.getElementById('updateForm');
+            form.style.display = 'block';
+        }
+
+        function submitUpdateForm(event, id){
+            event.preventDefault();
+            var form = document.getElementById('updateForm');
+
+            fetch('/update/' + taskId, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id:form.elements.taskId.value,
+                    taskname: form.elements.taskname.value,
+                    status: form.elements.status.value,
+                    priority: form.elements.priority.value,
+                    dateDue: form.elements.dateDue.value,
+                    description: form.elements.description.value
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    {{!-- Refresh the page or perform some other action --}}
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+
+
+
+        function deleteTask(event,taskId,user_id){
+          event.preventDefault();
+
+      console.log(taskId);
+          fetch('/api/task/delete/' + taskId, {
+              method: 'DELETE',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+        
+          .then(response => {
+            console.log(response);
+              if (response.ok) {
+                  window.location.href = "http://localhost:3001/dashboard/" + user_id;
+              } else {
+                  throw new Error('Something went wrong');
+              }
+          })
+          .catch(error => {
+              console.error(error);
+          });
+        }
+
+
+    </script>
