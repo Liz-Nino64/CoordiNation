@@ -1,7 +1,7 @@
 # CoordiNation
 ![Github license](https://img.shields.io/badge/license-MIT-mediumblue.svg)
 ## Description
-The CoordiNation Application is a full-stack web application that enables users to manage their tasks efficiently. It provides functionalities to create, update, delete tasks, set priority, and show status. The application uses Node.js and Express.js to create a RESTful API, MySQL and Sequelize ORM for the database, and Handlebars.js as the template engine. In addition, the application includes authentication, environmental variable protection, and deployment on Heroku.
+The CoordiNation Application is a full-stack web application that enables users to manage their tasks efficiently. It provides functionalities to create, update, and delete tasks, as well as set priorities, and show task statuses. The application uses Node.js and Express.js to create a RESTful API, MySQL and Sequelize ORM for the database, and Handlebars.js as the template engine. In addition, the application includes authentication, environmental variable protection, and deployment on Heroku.
 
 ## Table of Contents
 - [Description](#description)
@@ -82,5 +82,5 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 Collaborators:  
 
 - Nigel Poblete https://github.com/evohat3
-- Michael Muniz  https://github.com/m-s-muniz
+- Michael Muñiz  https://github.com/m-s-muniz
 - Elizabeth Niño  https://github.com/Liz-Nino64
