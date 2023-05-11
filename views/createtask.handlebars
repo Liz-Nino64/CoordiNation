@@ -1,21 +1,35 @@
 <div class="box has-background-dark border border-4 border-dark columns mt-3 p-2">
   
-  <div class="column">
+
+  <form class="form createtask-form">
+
+  <div class="column form-group">
   
-  <h5 class="box has-background-black has-text-danger">Task Title: <input class="has-text-dark"></input></h5>
-  
-  <h5 class="box has-background-black has-text-danger">Status : <input class="has-text-dark"></input></h5>
-    
+  <label for="taskName" class="box has-background-black has-text-danger">Task Title:</label>
+  <div class="control">
+    <div class="field">
+   <input id="taskName"class="has-text-dark" type="input" placeholder="Task Title" value=""></input>
+  </div>
+  </div>
+
+  <label for="taskStatus" class="box has-background-black has-text-danger">Status :</label>
+<div class="control">
+  <div class="field">
+  <input id="taskStatus" class="has-text-dark" type="input" placeholder="Task Status" value=""></input>
+  </div>
+    </div>
     <div class="box is-centered has-background-black has-text-light p-3">
       
-      <h6 class="box is centered has-background-success has-text-dark has-text-centered "><strong>Description:</strong></h6>
+      <label for="taskDescription" class="box is centered has-background-success has-text-dark has-text-centered ">Description:</label>
     
     <div class="box has-background-black">
       
       <div class="box has-background-dark has-text-light">
-        
-        <input class="has-text-dark"></input>
-      
+        <div class="control">
+          <div class="field">
+        <input id="taskDescription" class="has-text-dark" type="input" placeholder="Task Description" value=""></input>
+        </div>
+      </div>
       </div>
     
     </div>
@@ -24,19 +38,30 @@
   
   </div>
 
-              <div class="column">
-                
-                <h5 class="box has-background-black has-text-warning">Priortity : <input class="has-text-dark"></input></h5>
-                
-                <h5 class="box has-background-black has-text-warning">Due By : <input class="has-text-dark"></input></h5>
-              
-              <div class="box has-background-black">
-                
-                <a href="/" class="button is-success has-text-dark  border border-dark border-5 w-50 h-50 ">Submit</a>
-              
+              <div class="column form-group">
+
+                <label for="priority" class="box has-background-black has-text-warning">Priortity :</label>
+                <div class="control">
+                  <div class="field">
+                <input id="priority" class="has-text-dark" type="input" placeholder="Task Priortity" value=""></input>
+                </div>
+                </div>
+                <label class="box has-background-black has-text-warning">Due By :</label>
+                <div class="control">
+                  <div class="field">
+                <input  id="dateDue" class="has-text-dark" type="input" placeholder="Task Priortity" value=""></input>
+                </div>
+                </div>
+              <div class="box submit-box has-background-black">
+                <div class="control">
+                  <div class="field is-grouped">
+                <a id="submitBtn" class="button is-success has-text-dark  border border-dark border-5 w-50 h-50" type="submit">Submit</a>
+                </div>
+                </div>
               </div>
               
               </div>
 
 </div>
     
+  </form>

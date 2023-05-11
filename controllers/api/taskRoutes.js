@@ -72,4 +72,31 @@ router.get('/find/:id', async (req, res) => {
   }
 });
 
+
+router.post('/create', async (req, res) => {
+  try {
+    const newTask = await Task.create({
+      taskname: req.body.taskname,
+      description: req.body.description,
+      status: req.body.status,
+      priority: req.body.priority,
+      dateDue: req.body.dateDue,
+    });
+
+    if (!newTask) {
+      res
+        .status(400)
+        .json({ message: 'Unable to create new task, please try again!' });
+    }
+
+
+    res.json({user: newTask, message: 'you are now logged in!'});
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: 'Something went wrong on our end. Please try again!' });
+  }
+});
+
+
 module.exports = router;
