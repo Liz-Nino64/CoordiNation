@@ -1,7 +1,7 @@
 # CoordiNation
 ![Github license](https://img.shields.io/badge/license-MIT-mediumblue.svg)
 ## Description
-The CoordiNation Application is a full-stack web application that enables users to manage their tasks efficiently. It provides functionalities to create, update, delete tasks, set priority, and show status. The application uses Node.js and Express.js to create a RESTful API, MySQL and Sequelize ORM for the database, and Handlebars.js as the template engine. In addition, the application includes authentication, environmental variable protection, and deployment on Heroku.
+The CoordiNation Application is a full-stack web application that enables users to manage their tasks efficiently. It provides functionalities to create, update, and delete tasks, as well as set priorities, and show task statuses. The application uses Node.js and Express.js to create a RESTful API, MySQL and Sequelize ORM for the database, and Handlebars.js as the template engine. In addition, the application includes authentication, environmental variable protection, and deployment on Heroku.
 
 ## Table of Contents
 - [Description](#description)
@@ -50,7 +50,7 @@ npm start
 
 4. Create a task by clicking the "Create" button. You can set the title, description, priority, and due date.
 
-5. Edit a task by clicking the "Edit" button. You can modify the title, description, priority, and due date.
+5. Update a task by clicking the "Update" button. You can modify the title, description, priority, and due date.
 
 6. Delete a task by clicking the "Delete" button.
 
@@ -62,8 +62,16 @@ npm start
 
 
 ## Screenshots
-```
-```
+
+![Alt text](assests/images/CoordiNation%20screenshot.png)
+![Alt text](assests/images/create-user-account.png)
+![Alt text](assests/images/login.png)
+![Alt text](assests/images/dashboard.png)
+![Alt text](assests/images/users-task-list.png)
+![Alt text](assests/images/create%20-task.png)
+![Alt text](assests/images/a-task-to-update-or-delete.png)
+![Alt text](assests/images/update-task-form.png)
+
 
 ## Deployment Link
 
