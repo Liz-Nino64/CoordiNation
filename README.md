@@ -28,7 +28,7 @@ npm install
 3. Create a `.env` file in the root directory with the following content:
 
 ```
-DB_NAME='Task-db'
+DB_NAME='Tasks_db'
 DB_USER='root'
 DB_PASSWORD='your-mysql-password goes here'
 SESSION_SECRET='your_session_secret goes here'
