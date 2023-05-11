@@ -90,5 +90,5 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 Collaborators:  
 
 - Nigel Poblete https://github.com/evohat3
-- Michael Muniz  https://github.com/m-s-muniz
+- Michael Muñiz  https://github.com/m-s-muniz
 - Elizabeth Niño  https://github.com/Liz-Nino64
