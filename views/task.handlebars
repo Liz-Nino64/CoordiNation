@@ -145,7 +145,7 @@
           .then(response => {
             console.log(response);
               if (response.ok) {
-                  window.location.href = "http://localhost:3001/dashboard/" + user_id;
+                  window.location.href = "/dashboard/" + user_id;
               } else {
                   throw new Error('Something went wrong');
               }

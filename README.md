@@ -50,7 +50,7 @@ npm start
 
 4. Create a task by clicking the "Create" button. You can set the title, description, priority, and due date.
 
-5. Edit a task by clicking the "Edit" button. You can modify the title, description, priority, and due date.
+5. Update a task by clicking the "Update" button. You can modify the title, description, priority, and due date.
 
 6. Delete a task by clicking the "Delete" button.
 
@@ -62,8 +62,16 @@ npm start
 
 
 ## Screenshots
-```
-```
+
+![Alt text](assests/images/CoordiNation%20screenshot.png)
+![Alt text](assests/images/create-user-account.png)
+![Alt text](assests/images/login.png)
+![Alt text](assests/images/dashboard.png)
+![Alt text](assests/images/users-task-list.png)
+![Alt text](assests/images/create%20-task.png)
+![Alt text](assests/images/a-task-to-update-or-delete.png)
+![Alt text](assests/images/update-task-form.png)
+
 
 ## Deployment Link
 
