@@ -18,7 +18,6 @@ const createTaskHandler = async (event) => {
     });
 
     if (response.ok) {
-        const newUser = await response.json();
         const newTask = await response.json();
 
         console.log(newTask)
